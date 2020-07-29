@@ -1,7 +1,9 @@
 <?php
 
-class Database {
-	public static function getConnection() {
+class Database 
+{
+	public static function getConnection() 
+	{
 		$envPath = realpath(dirname(__FILE__) . '/../env.ini');
 		$env = parse_ini_file($envPath);
 		$conn = new mysqli($env['host'], $env['username'],
@@ -12,5 +14,13 @@ class Database {
 		}
 
 		return $conn;
+	}
+
+	public static function getResultFromQuery($sql)
+	{
+		$conn = self::getConnection();
+		$result = $conn->query($sql);
+		$conn->close();
+		return $result;
 	}
 }
