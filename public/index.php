@@ -8,4 +8,4 @@ $user = new User([
 	'email' => 'lucas@localhost'
 ]);
 
-print_r($user);
+print_r($user->name);
