@@ -30,4 +30,37 @@ class Model
 		$this->values[$key] = $value;
 	}
 
+	public static function getSelect($filters = [], $columns = '*')
+	{
+		$sql = "SELECT {$columns} FROM " 
+			. static::$tableName
+			. static::getFilters($filters);
+		return $sql;
+	}
+
+	public static function getFilters($filters)
+	{
+		$sql = '';
+
+		if (count($filters) > 0) {
+			$where = [];
+			foreach ($filters as $column => $value) {
+				$where[] = "$column = " . static::getFormatedValue($value);
+			}
+			$sql = " WHERE " . implode(" AND ", $where);
+		}
+
+		return $sql;
+	}
+
+	private static function getFormatedValue($value) 
+	{
+		if (is_null($value)) {
+			return "null";
+		} elseif (gettype($value) === 'string') {
+			return "'{$value}'";
+		} else {
+			return $value;
+		}
+	}
 }
