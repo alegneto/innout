@@ -8,6 +8,11 @@ $user = new User([
 	'email' => 'lucas@localhost'
 ]);
 
-echo User::getSelect(['id' => 1], 'name, email');
+print_r(User::get(['id' => 1], 'id, name, email'));
+
 echo '<br>';
-echo User::getSelect(['name' => 'Chaves', 'email' => 'chaves@cod3r.com.br']);
+
+foreach (User::get([], 'name') as $user) {
+	echo $user->name;
+	echo '<br>';
+}
