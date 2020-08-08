@@ -9,6 +9,9 @@ if (count($_POST) > 0) {
 		$user = $login->checkLogin();
 		echo 'Usuário logado';
 	}
+	catch (ValidationException $e) {
+		$exception = $e;
+	}
 	catch (AppException $e) {
 		$exception = $e;
 	}
