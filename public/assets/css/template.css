@@ -83,11 +83,16 @@ header.header .dropdown-content {
 header.header .dropdown-content ul {
 	list-style: none;
 	padding-left: 0;
+	margin-bottom: 0;
 }
 
 header.header .dropdown-content a {
+	display: flex;
+	align-items: center;
 	text-decoration: none;
 	color: #222;
+	padding: 7px;
+	font-size: 1.1rem;
 }
 
 header.header .dropdown-content a:hover {
