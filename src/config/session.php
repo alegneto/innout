@@ -1,6 +1,6 @@
 <?php
 
-function requiredValidSession()
+function requireValidSession()
 {
 	$user = $_SESSION['user'];
 	if (!isset($user)) {
