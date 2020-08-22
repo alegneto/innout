@@ -60,6 +60,7 @@ class WorkingHours extends Model
 		}
 
 		$this->$timeColumn = $time;
+		$this->worked_time = getSecondsFromDateInterval($this->getWorkedInterval());
 		if ($this->id) {
 			$this->update();
 		} else {
