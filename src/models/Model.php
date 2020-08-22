@@ -93,7 +93,11 @@ class Model
 		if (count($filters) > 0) {
 			$where = [];
 			foreach ($filters as $column => $value) {
-				$where[] = "$column = " . static::getFormatedValue($value);
+				if ($column === 'raw') {
+					$where[] = $value;
+				} else {
+					$where[] = "$column = " . static::getFormatedValue($value);
+				}
 			}
 			$sql = " WHERE " . implode(" AND ", $where);
 		}
