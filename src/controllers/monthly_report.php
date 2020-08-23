@@ -14,7 +14,7 @@ $lastDay = getLastDayOfMonth($currentDate)->format('d');
 
 for ($day = 1; $day <= $lastDay; $day++) {
 	$date = $currentDate->format('Y-m') . '-' . sprintf('%02d', $day);
-	$registry = $registries[$date];
+	$registry = isset($registries[$date]) ? $registries[$date] : ($registries[$date] = []);
 
 	if (isPastWorkday($date)) $workDay++;
 
@@ -35,6 +35,6 @@ $sign = ($sumOfWorkedTime >= $expectedTime) ? '+' : '-';
 
 loadTemplateView('monthly_report', [
 	'report' => $report,
-	'sumOfWorkedTime' => $sumOfWorkedTime,
+	'sumOfWorkedTime' => getTimeSrtingFromSeconds($sumOfWorkedTime),
 	'balance' => "{$sign}{$balance}"
 ]);
