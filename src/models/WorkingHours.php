@@ -111,6 +111,17 @@ class WorkingHours extends Model
 		}
 	}
 
+	public function getBalance()
+	{
+		if (!$this->time1 and !isPastWorkday($this->work_date)) return '';
+		if ($this->worked_time == DAYLY_TIME) return '-';
+
+		$balance = $this->worked_time - DAYLY_TIME;
+		$balanceString = getTimeSrtingFromSeconds(abs($balance));
+		$sign = $this->worked_time >= DAYLY_TIME ? '+' : '-';
+		return "{$sign}{$balanceString}";
+	}
+
 	public static function getMonthlyReport($userId, $date)
 	{
 		$registries = [];
