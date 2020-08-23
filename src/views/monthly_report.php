@@ -7,6 +7,14 @@
 		);
 	?>
 	<div>
+		<form class="mb-4" action="#" method="post">
+			<select name="period" class="form-control" placeholder="Selecione o período...">
+				<?php foreach($periods as $key => $month): ?>
+					<option value="<?= $key ?>"><?= $month?></option>
+				<?php endforeach ?>
+			</select>
+		</form>
+
 		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<th>Dia</th>
