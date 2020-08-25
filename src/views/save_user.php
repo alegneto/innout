@@ -17,7 +17,7 @@
 					class="form-control <?= isset($errors['name']) ? 'is-invalid' : '' ?>"
 					value="<?= $name ?? '' ?>">
 				<div class="invalid-feedback">
-					<?= isset($errors['name']) ?>
+					<?= $errors['name'] ?? '' ?>
 				</div>
 			</div>
 			<div class="form-group col-md-6">
@@ -26,7 +26,7 @@
 					class="form-control <?= isset($errors['email']) ? 'is-invalid' : '' ?>"
 					value="<?= $email ?? '' ?>">
 				<div class="invalid-feedback">
-					<?= isset($errors['email']) ?>
+					<?= $errors['email'] ?? '' ?>
 				</div>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 				<input type="password" id="password" name="password" placeholder="Informe a senha" 
 					class="form-control <?= isset($errors['password']) ? 'is-invalid' : '' ?>">
 				<div class="invalid-feedback">
-					<?= isset($errors['password']) ?>
+					<?= $errors['password'] ?? '' ?>
 				</div>
 			</div>
 			<div class="form-group col-md-6">
@@ -44,7 +44,7 @@
 				<input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme a senha" 
 					class="form-control <?= isset($errors['confirm_password']) ? 'is-invalid' : '' ?>">
 				<div class="invalid-feedback">
-					<?= isset($errors['confirm_password']) ?>
+					<?= $errors['confirm_password'] ?? '' ?>
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 					class="form-control <?= isset($errors['start_date']) ? 'is-invalid' : '' ?>"
 					value="<?= $start_date ?? '' ?>">
 				<div class="invalid-feedback">
-					<?= isset($errors['start_date']) ?>
+					<?= $errors['start_date'] ?? '' ?>
 				</div>
 			</div>
 			<div class="form-group col-md-6">
@@ -64,7 +64,7 @@
 					class="form-control <?= isset($errors['end_date']) ? 'is-invalid' : '' ?>"
 					value="<?= $end_date ?? '' ?>">
 				<div class="invalid-feedback">
-					<?= isset($errors['end_date']) ?>
+					<?= $errors['end_date'] ?? '' ?>
 				</div>
 			</div>
 		</div>
@@ -75,7 +75,7 @@
 					<?= isset($errors['is_admin']) ? 'is-invalid' : '' ?>"
 					<?= !empty($is_admin) ? 'checked' : '' ?>>
 				<div class="invalid-feedback">
-					<?= isset($errors['is_admin']) ?>
+					<?= $errors['is_admin'] ?? '' ?>
 				</div>
 			</div>
 		</div>
