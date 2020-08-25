@@ -85,6 +85,12 @@ class Model
 		$sql .= "WHERE id = {$this->id}";
 		Database::executeSQL($sql);
 	}
+	
+	public static function getCount($filters = [])
+	{
+		$result = static::getResultSetFromSelect($filters, 'count(*) as count');
+		return $result->fetch_assoc()['count'];
+	}
 
 	public static function getFilters($filters)
 	{
