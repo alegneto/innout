@@ -92,6 +92,12 @@ class Model
 		return $result->fetch_assoc()['count'];
 	}
 
+	public static function deleteById($id)
+	{
+		$sql = "DELETE FROM " . static::$tableName . " WHERE id = {$id}";
+		Database::executeSQL($sql);
+	}
+
 	public static function getFilters($filters)
 	{
 		$sql = '';
