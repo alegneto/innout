@@ -147,8 +147,8 @@ class WorkingHours extends Model
 
 	public static function getWorkedTimeInMonth($yearAndMonth)
 	{
-		$startDate = getFirstDayOfMonth($yearAndMonth);
-		$endDate = getLastDayOfMonth($yearAndMonth);
+		$startDate = getFirstDayOfMonth($yearAndMonth)->format('Y-m-d');
+		$endDate = getLastDayOfMonth($yearAndMonth)->format('Y-m-d');
 		$result = static::getResultSetFromSelect([
 			'raw' => "work_date BETWEEN '{$startDate}' AND '{$endDate}'"
 		], "SUM(worked_time) AS sum");
